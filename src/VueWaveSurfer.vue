@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import WaveSurfer from "wavesurfer.js";
 
 export default {
   props: ['src', 'options'],
@@ -12,11 +11,12 @@ export default {
       waveSurfer: {}
     };
   },
-  mounted() {
+  async mounted() {
     let options = this.options;
     let wsOptions = Object.assign({ container: this.$el }, options);
+    let WaveSurfer = (await import('wavesurfer.js')).default;
     this.waveSurfer = new WaveSurfer.create(wsOptions);
-    this.waveSurfer.load(this.src);
+    await this.waveSurfer.load(this.src);
   },
   beforeDestroy() {
     this.waveSurfer.destroy();
