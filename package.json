@@ -10,7 +10,7 @@
   "author": "Isaiah Hunter",
   "license": "ISC",
   "dependencies": {
-    "wavesurfer.js": "^6.4.0"
+    "wavesurfer.js": "https://github.com/Candombe/wavesurfer.js/tarball/master"
   },
   "repository": {
     "type": "git",
